@@ -23,6 +23,7 @@ export enum SupportedDbtAdapter {
     SNOWFLAKE = 'snowflake',
     REDSHIFT = 'redshift',
     POSTGRES = 'postgres',
+    TRINO = 'trino',
 }
 
 export type DbtNodeConfig = {
@@ -109,6 +110,8 @@ export const normaliseModelDatabase = (
             }
             return { ...model, database: model.database as string };
         case SupportedDbtAdapter.DATABRICKS:
+            return { ...model, database: model.database || 'DEFAULT' };
+        case SupportedDbtAdapter.TRINO:
             return { ...model, database: model.database || 'DEFAULT' };
         default:
             return assertUnreachable(
