@@ -41,7 +41,7 @@ services:
       - LIGHTDASH_QUERY_MAX_LIMIT=${LIGHTDASH_QUERY_MAX_LIMIT}
     volumes:
       - "../:/usr/app"
-      - "../examples/trino-demo/dbt:/usr/app/dbt"
+      - "../examples/compendio/dbt:/usr/app/dbt"
       - "node_modules:/usr/app/node_modules/" # clears the node_modules directory so it doesn't sync (v.slow on MacOS)
     ports:
       - "${PORT}:8080"
