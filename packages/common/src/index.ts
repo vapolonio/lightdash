@@ -893,7 +893,6 @@ export type CreateTrinoCredentials = {
     port: number;
     dbname: string;
     schema: string;
-    catalog: string;
     threads?: number;
     keepalivesIdle?: number;
     searchPath?: string;
